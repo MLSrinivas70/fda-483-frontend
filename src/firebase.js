@@ -1,7 +1,6 @@
 // firebase.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { config } from '../secrets';
 
 // const firebaseConfig = {
 //   apiKey: config.VITE_FIREBASE_API_KEY,
