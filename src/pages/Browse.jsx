@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useMemo} from 'react';
 import { Box, Typography, Card, TextField, InputAdornment, MenuItem, Select, FormControl, Chip, IconButton, Divider, Autocomplete, CircularProgress } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import axiosInstance from '../api/axios';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 
 const sortOptions = ['Inspection Date', 'Company Name', 'FEI Number'];
 
@@ -279,7 +279,7 @@ const Browse = () => {
                 {/* View/Download */}
                 <Box sx={{ width: 45, display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', border: '1px solid #d8dce1', borderRadius: 3 }}>
                   <IconButton onClick={() => downloadPdf(insp.url, insp.name)}>
-                    <DownloadOutlinedIcon />
+                    <RemoveRedEyeOutlinedIcon />
                   </IconButton>
                 </Box>
               </Box>

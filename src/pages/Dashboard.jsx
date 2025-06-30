@@ -55,7 +55,7 @@ const Dashboard = () => {
         numberofCompanies: uniqueCompanies.size,
         numberOfFiles: fileNames.size,
         categoriesList,
-        repetitiveIssues
+        repetitiveIssues: []
       };
     }, [timeAnalysisResult]);
 
@@ -186,8 +186,8 @@ const Dashboard = () => {
                     />}
                     </Box>
                     <Typography sx={{ color: '#222', mb: 1 }}>{item.summary}</Typography>
-                    {item.inspectionNumber && <Box sx={{ display: 'inline-block', background: '#f7f7f7', borderRadius: 1, px: 1.5, py: 0.5, fontFamily: 'monospace', fontSize: 15, color: '#222', fontWeight: 500, width: 'fit-content' }}>
-                    {item.inspectionNumber}
+                    {item.cfrNumber && <Box sx={{ display: 'inline-block', background: '#f7f7f7', borderRadius: 1, px: 1.5, py: 0.5, fontFamily: 'monospace', fontSize: 15, color: '#222', fontWeight: 500, width: 'fit-content' }}>
+                    {item.cfrNumber}
                     </Box>}
                 </Box>
                 )
