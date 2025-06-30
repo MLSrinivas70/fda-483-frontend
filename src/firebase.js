@@ -11,7 +11,6 @@ import { getFirestore } from 'firebase/firestore';
 //   appId: config.VITE_FIREBASE_APP_ID,
 //   measurementId: config.VITE_FIREBASE_MEASUREMENT_ID
 // };
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -21,6 +20,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
+console.log(firebaseConfig, 'jskdfhjksdgfkg');
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
