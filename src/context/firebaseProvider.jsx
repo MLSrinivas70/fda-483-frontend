@@ -21,35 +21,33 @@ export const FirebaseDataProvider = ({ children }) => {
     setToast({ ...toast, open: false });
   };
 
-  const fetchFirebaseData = async () => {
-    try {
-      const companiesRef = collection(db, 'fda-483-documents');
-      const snapshot = await getDocs(companiesRef);
-      const result = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setDocuments(result);
-    } catch (error) {
-      showToast('Error fetching Firebase data', 'error');
-      console.error('Error fetching Firebase data:', error);
-    }
-  };
+  // const fetchFirebaseData = async () => {
+  //   try {
+  //     const companiesRef = collection(db, 'fda-483-documents');
+  //     const snapshot = await getDocs(companiesRef);
+  //     const result = snapshot.docs.map(doc => ({
+  //       id: doc.id,
+  //       ...doc.data(),
+  //     }));
+  //     setDocuments(result);
+  //   } catch (error) {
+  //     showToast('Error fetching Firebase data', 'error');
+  //     console.error('Error fetching Firebase data:', error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchFirebaseData();
-  }, []);
+  // useEffect(() => {
+  //   fetchFirebaseData();
+  // }, []);
 
   return (
     <ToastContext.Provider value={{ showToast }}>
-      <FirebaseDataContext.Provider value={{ documents }}>
         {children}
         <Snackbar open={toast.open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
           <Alert onClose={handleClose} severity={toast.severity} sx={{ width: '100%', }}>
             {toast.message}
           </Alert>
         </Snackbar>
-      </FirebaseDataContext.Provider>
     </ToastContext.Provider>
   );
 };
