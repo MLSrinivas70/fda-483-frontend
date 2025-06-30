@@ -2,7 +2,6 @@ import React, {useState, useEffect, useMemo} from 'react';
 import { Box, Typography, Card, TextField, InputAdornment, MenuItem, Select, FormControl, Chip, IconButton, Divider, Autocomplete, CircularProgress } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
-import { useFirebaseData } from '../context/firebaseProvider';
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import axiosInstance from '../api/axios';
 
@@ -19,11 +18,24 @@ const Browse = () => {
   const [fei, setFei] = useState('');
   const [sort, setSort] = useState('Inspection Date');
   const [search, setSearch] = useState('');
-  const { documents } = useFirebaseData();
+  const [documents, setDocuments] = useState([]);
   const [filteredDocuments, setFilteredDocuments] = useState([]);
   const [debounce, setDebounce] = useState('');
   const [loading, setLoading] = useState(false);
   
+  const fetchDocuments = async () => {
+    try {
+      const response = await axiosInstance.get('/firebaseData');
+      setDocuments(response.data);
+    } catch (error) {
+      console.log(error, 'error')
+    }
+  }
+  useEffect(() => {
+    fetchDocuments();
+  }, [])
+
+  console.log(documents, 'documentsdocumentsdocuments')
 
   const fetchResult = async () => {
     setLoading(true);
