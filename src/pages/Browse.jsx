@@ -241,7 +241,7 @@ const Browse = () => {
                 </Box>
                 {/* Key Findings */}
                 <Box sx={{ flex: 3, display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  {insp.category ? <Box>
+                  {insp.summary ? <Box>
                     <Chip
                       label={insp.category}
                       sx={{
